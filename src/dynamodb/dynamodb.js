@@ -7,12 +7,13 @@ import {
   UpdateCommand,
   DeleteCommand,
 } from "@aws-sdk/lib-dynamodb";
-
+import dotenv from "dotenv";
+dotenv.config();
 const client = new DynamoDBClient({
-  region: import.meta.env.VITE_AWS_REGION,
+  region: process.env.AWS_REGION,
   credentials: {
-    accessKeyId: import.meta.env.VITE_AWS_ACCESS_KEY_ID,
-    secretAccessKey: import.meta.env.VITE_AWS_SECRET_ACCESS_KEY,
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
   },
 });
 
